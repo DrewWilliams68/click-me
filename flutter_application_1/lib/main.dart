@@ -69,6 +69,12 @@ class _MyHomePageState extends State<MyHomePage> {
       }
     });
   }
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+  
   
 
   @override
@@ -114,14 +120,20 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            ElevatedButton(onPressed: _incrementCounter, child: const Icon(Icons.arrow_upward)),
           ],
+
         ),
+        
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [FloatingActionButton(
         onPressed: _decrementCounter,
         tooltip: 'Decrement',
-        child: const Icon(Icons.arrow_downward),
-      ),
+        child: const Icon(Icons.arrow_downward)),],),
     );
+    
   }
 }
+
+
+
